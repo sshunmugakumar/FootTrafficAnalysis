@@ -34,6 +34,10 @@ public class FootTrafficAnalysis {
 			bufferReader = new BufferedReader(new FileReader(inputFile)); // BufferReader using  read  the input  file
 			String line = bufferReader.readLine(); // read line by line
 			while (line != null) { // check line value not equal null or not
+				if(line.trim().length()==0){
+					line = bufferReader.readLine();
+					continue;
+				}
 				String[] data = line.split(" ");// remove space read line to assign array of String using  String.split method
 				FootTrafficVO footTrafficVO = new FootTrafficVO();
 				if (data.length != 0 && data.toString().length() != 0) { // Check String array length
@@ -135,6 +139,9 @@ public class FootTrafficAnalysis {
 			buffer = new BufferedWriter(writer);
 			for (String output : listOutPut) {
 				buffer.write(output);// iterate write line by line
+				buffer.newLine();// create new line
+				buffer.newLine();// create new line
+				buffer.newLine();// create new line
 				buffer.newLine();// create new line
 
 			}
